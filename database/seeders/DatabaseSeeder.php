@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         // 1. Seed the default Admin User for Filament
         $admin = User::create([
             'name' => 'Admin HL',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
+            'email' => 'admin@hlfinance.com',
+            'password' => Hash::make('adminfinance'),
             'has_completed_tour' => false,
         ]);
 

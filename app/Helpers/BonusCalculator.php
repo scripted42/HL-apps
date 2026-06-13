@@ -55,6 +55,8 @@ class BonusCalculator
             'bonuses_claimed' => $bonusesClaimed,
             'bonuses_available' => $bonusesAvailable,
             'carry_over_omzet' => $carryOverOmzet,
+            'accumulated_omzet' => $carryOverOmzet,
+            'remaining_for_next_bonus' => max(0.00, $threshold - $carryOverOmzet),
             'progress_percentage' => round($progressPercentage, 2),
             'threshold' => $threshold,
         ];
