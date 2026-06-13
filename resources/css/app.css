@@ -125,17 +125,102 @@
     color: #ffffff !important;
 }
 
-.tabler-stats-card {
-    background-color: #ffffff;
-    border: 1px solid #e6e8eb;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04);
+.premium-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01), inset 0 2px 4px 0 rgba(255, 255, 255, 0.5) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.dark .tabler-stats-card {
-    background-color: #121824;
-    border-color: #232d3d;
+.premium-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 20px -8px rgba(99, 102, 241, 0.15), 0 4px 12px -2px rgba(99, 102, 241, 0.05) !important;
+    border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+.card-piutang:hover {
+    box-shadow: 0 12px 20px -8px rgba(244, 63, 94, 0.15), 0 4px 12px -2px rgba(244, 63, 94, 0.05) !important;
+    border-color: rgba(244, 63, 94, 0.3) !important;
+}
+
+.card-omzet:hover {
+    box-shadow: 0 12px 20px -8px rgba(99, 102, 241, 0.15), 0 4px 12px -2px rgba(99, 102, 241, 0.05) !important;
+    border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+.card-laba:hover {
+    box-shadow: 0 12px 20px -8px rgba(16, 185, 129, 0.15), 0 4px 12px -2px rgba(16, 185, 129, 0.05) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.card-bonus:hover {
+    box-shadow: 0 12px 20px -8px rgba(245, 158, 11, 0.15), 0 4px 12px -2px rgba(245, 158, 11, 0.05) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.premium-section-card {
+    background: #ffffff !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.005) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.premium-section-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.01) !important;
+}
+
+.sparkline-container {
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.premium-card:hover .sparkline-container {
+    opacity: 1;
+}
+
+.card-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.03;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.premium-card:hover .card-glow {
+    opacity: 0.08;
+}
+
+.glow-piutang {
+    background: #f43f5e;
+    top: -50px;
+    right: -50px;
+}
+
+.glow-omzet {
+    background: #6366f1;
+    top: -50px;
+    right: -50px;
+}
+
+.glow-laba {
+    background: #10b981;
+    top: -50px;
+    right: -50px;
+}
+
+.glow-bonus {
+    background: #f59e0b;
+    top: -50px;
+    right: -50px;
 }
 
 .tabler-trend-up {
