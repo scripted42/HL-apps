@@ -1,6 +1,6 @@
 # HL Sales & Receivables Management System
 
-Aplikasi internal berbasis web untuk mengelola transaksi penjualan (bon), pemantauan piutang, pelacakan akumulasi bonus pelanggan (*cash basis*), laba bersih, serta rekapitulasi data keuangan. Sistem ini dibangun menggunakan **Laravel 11**, **Laravel Livewire v3**, dan **Tabler.io Bootstrap 5** untuk antarmuka pengguna (UI) yang modern dan responsif.
+Aplikasi internal berbasis web untuk mengelola transaksi penjualan (bon), pemantauan piutang, pelacakan akumulasi bonus pelanggan (*cash basis*), laba bersih, serta rekapitulasi data keuangan. Sistem ini dibangun menggunakan **Laravel 11**, **Laravel Livewire v3**, dan **Bootstrap 5** untuk antarmuka pengguna (UI) yang modern dan responsif.
 
 > [!IMPORTANT]
 > **Kredensial Login Default (Seeded Admin):**
@@ -11,7 +11,7 @@ Aplikasi internal berbasis web untuk mengelola transaksi penjualan (bon), pemant
 
 ## 🛠️ Tech Stack & Dependensi
 * **Core Framework**: Laravel 11 & PHP >= 8.2
-* **Frontend Library**: Laravel Livewire v3 & Tabler.io Core (Bootstrap 5)
+* **Frontend Library**: Laravel Livewire v3 & Bootstrap 5
 * **Icons**: Tabler Icons
 * **Database**: SQLite (Bawaan & Praktis)
 * **Grafik**: Chart.js
