@@ -103,7 +103,7 @@
                   @if($is_bonus)
                     <div class="col-md-6">
                       <label class="form-label font-weight-semibold">Jumlah Kupon Bonus yang Diklaim</label>
-                      <input type="number" wire:model.blur="bonuses_claimed" class="form-control @error('bonuses_claimed') is-invalid @enderror" min="1">
+                      <input type="number" wire:model.live.debounce.800ms="bonuses_claimed" class="form-control @error('bonuses_claimed') is-invalid @enderror" min="1">
                       @error('bonuses_claimed') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                   @endif
@@ -166,7 +166,7 @@
                           </span>
                         </td>
                         <td>
-                          <input type="number" wire:model.blur="items.{{ $index }}.quantity" class="form-control form-control-sm text-center font-weight-semibold" min="1">
+                          <input type="number" wire:model.live.debounce.800ms="items.{{ $index }}.quantity" class="form-control form-control-sm text-center font-weight-semibold" min="1">
                         </td>
                         <td class="text-end font-weight-black text-dark">
                           Rp {{ number_format($item['line_omzet'], 0, ',', '.') }}
@@ -276,7 +276,7 @@
                   <label class="form-label font-weight-semibold">Ongkos Kirim (Ongkir)</label>
                   <div class="input-group">
                     <span class="input-group-text font-weight-semibold">Rp</span>
-                    <input type="number" wire:model.blur="ongkir" class="form-control text-end font-weight-bold" min="0" placeholder="0">
+                    <input type="number" wire:model.live.debounce.800ms="ongkir" class="form-control text-end font-weight-bold" min="0" placeholder="0">
                   </div>
                 </div>
 
