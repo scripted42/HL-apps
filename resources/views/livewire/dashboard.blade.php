@@ -332,6 +332,11 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+          padding: {
+            left: 15
+          }
+        },
         plugins: {
           legend: {
             position: 'top',
