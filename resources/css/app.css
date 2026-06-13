@@ -74,6 +74,7 @@
     border-radius: 6px !important;
     border-color: #d8dbdf !important;
     box-shadow: 0 1px 1px rgba(0,0,0,0.02) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .dark .fi-fo-text-input input, 
@@ -144,4 +145,18 @@
 .tabler-trend-down {
     color: #d63939 !important;
     font-weight: 600;
+}
+
+/* Filament custom theme icon size fixes */
+.h-6 {
+    height: 24px !important;
+}
+.w-6 {
+    width: 24px !important;
+}
+.h-5 {
+    height: 20px !important;
+}
+.w-5 {
+    width: 20px !important;
 }
