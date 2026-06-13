@@ -61,6 +61,7 @@
                 <th>Diskon LM (%)</th>
                 <th>Diskon BR (%)</th>
                 <th class="text-end">Threshold Bonus</th>
+                <th class="text-center" style="width: 150px;">Status Bonus</th>
                 <th class="text-center">Aksi</th>
               </tr>
             </thead>
@@ -92,6 +93,24 @@
                     Rp {{ number_format($c->bonus_threshold, 0, ',', '.') }}
                   </td>
                   <td class="text-center">
+                    @php
+                      $stats = \App\Helpers\BonusCalculator::getStats($c);
+                    @endphp
+                    @if($stats['bonuses_available'] > 0)
+                      <span class="badge bg-green-lt text-green font-weight-bold px-2 py-1">
+                        <i class="ti ti-gift me-1"></i> {{ $stats['bonuses_available'] }} KLAIM
+                      </span>
+                      <small class="text-muted d-block mt-1" style="font-size: 0.675rem;">Progres: {{ $stats['progress_percentage'] }}%</small>
+                    @else
+                      <div class="d-flex flex-column align-items-center">
+                        <div class="progress progress-xs w-100" style="max-width: 80px; height: 4px;">
+                          <div class="progress-bar bg-warning" style="width: {{ $stats['progress_percentage'] }}%"></div>
+                        </div>
+                        <small class="text-muted mt-1" style="font-size: 0.675rem;">{{ $stats['progress_percentage'] }}% progres</small>
+                      </div>
+                    @endif
+                  </td>
+                  <td class="text-center">
                     <div class="btn-list justify-content-center">
                       <a href="{{ route('customers.show', $c->id) }}" class="btn btn-icon btn-light btn-sm rounded-2 shadow-xs border" title="Detail Monthly & Settle">
                         <i class="ti ti-eye"></i>
@@ -107,7 +126,7 @@
                 </tr>
               @empty
                 <tr>
-                  <td colspan="5" class="py-5 text-center text-muted">Belum ada data pelanggan yang sesuai.</td>
+                  <td colspan="6" class="py-5 text-center text-muted">Belum ada data pelanggan yang sesuai.</td>
                 </tr>
               @endforelse
             </tbody>

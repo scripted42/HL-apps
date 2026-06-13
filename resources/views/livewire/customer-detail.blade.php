@@ -78,11 +78,11 @@
           <div class="card shadow-xs h-100">
             <div class="card-status-top bg-warning"></div>
             <div class="card-body">
-              <div class="subheader text-secondary">Pencapaian Bonus Pelanggan</div>
+              <div class="subheader text-secondary">Kartu Progress Bonus Pelanggan</div>
               
               <div class="d-flex align-items-center justify-content-between my-3">
                 <div>
-                  <span class="d-block text-muted font-weight-semibold" style="font-size: 0.75rem;">Omzet Terkumpul (Bulan Berjalan):</span>
+                  <span class="d-block text-muted font-weight-semibold" style="font-size: 0.75rem;">Akumulasi Omzet Lunas (Siklus Berjalan):</span>
                   <span class="h1 font-weight-black text-dark tracking-tight">
                     Rp {{ number_format($bonusStats['accumulated_omzet'], 0, ',', '.') }}
                   </span>
