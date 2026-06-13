@@ -46,7 +46,7 @@
         <!-- 4 Metrics Cards -->
         <!-- Card 1: Total Piutang -->
         <div class="col-sm-6 col-lg-3">
-          <div class="card card-sm premium-card-tabler">
+          <a href="{{ route('transactions.index', ['statusFilter' => 'Piutang']) }}" class="card card-sm premium-card-tabler text-decoration-none">
             <div class="card-status-top bg-danger"></div>
             <div class="card-body">
               <div class="d-flex align-items-center justify-content-between">
@@ -72,12 +72,12 @@
                 </svg>
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
         <!-- Card 2: Total Omzet Lunas -->
         <div class="col-sm-6 col-lg-3">
-          <div class="card card-sm premium-card-tabler">
+          <a href="{{ route('transactions.index', ['statusFilter' => 'Lunas']) }}" class="card card-sm premium-card-tabler text-decoration-none">
             <div class="card-status-top bg-primary"></div>
             <div class="card-body">
               <div class="d-flex align-items-center justify-content-between">
@@ -103,12 +103,12 @@
                 </svg>
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
         <!-- Card 3: Total Laba HL Lunas -->
         <div class="col-sm-6 col-lg-3">
-          <div class="card card-sm premium-card-tabler">
+          <a href="{{ route('transactions.index', ['statusFilter' => 'Lunas']) }}" class="card card-sm premium-card-tabler text-decoration-none">
             <div class="card-status-top bg-success"></div>
             <div class="card-body">
               <div class="d-flex align-items-center justify-content-between">
@@ -134,12 +134,12 @@
                 </svg>
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
         <!-- Card 4: Bonus Eligibility -->
         <div class="col-sm-6 col-lg-3">
-          <div class="card card-sm premium-card-tabler">
+          <a href="{{ route('customers.index', ['bonusFilter' => 'eligible']) }}" class="card card-sm premium-card-tabler text-decoration-none">
             <div class="card-status-top bg-warning"></div>
             <div class="card-body">
               <div class="d-flex align-items-center justify-content-between">
@@ -159,7 +159,7 @@
                 </svg>
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
         <!-- Chart Row -->

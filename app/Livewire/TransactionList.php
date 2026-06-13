@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Transaction;
 use App\Models\Customer;
+use Livewire\Attributes\Url;
 
 class TransactionList extends Component
 {
@@ -14,7 +15,10 @@ class TransactionList extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $search = '';
+    
+    #[Url]
     public $statusFilter = ''; // Piutang or Lunas
+    
     public $customerFilter = ''; // customer_id
 
     public function updatingSearch()

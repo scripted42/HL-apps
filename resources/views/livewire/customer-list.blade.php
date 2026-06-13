@@ -34,13 +34,22 @@
 
       <div class="card shadow-xs">
         <div class="card-body border-bottom py-3">
-          <div class="d-flex">
-            <div class="text-secondary">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="text-secondary d-flex align-items-center">
               Cari Pelanggan:
               <div class="ms-2 d-inline-block">
                 <input wire:model.live="search" type="search" class="form-control form-control-sm" placeholder="Ketik nama pelanggan..." style="width: 240px;">
               </div>
             </div>
+            
+            @if($bonusFilter === 'eligible')
+              <div>
+                <span class="badge bg-green-lt text-green font-weight-bold px-3 py-2 rounded-2 d-inline-flex align-items-center gap-2">
+                  <i class="ti ti-gift" style="font-size: 1rem;"></i> Menyaring: Berhak Bonus
+                  <button type="button" wire:click="$set('bonusFilter', '')" class="btn-close ms-2" style="font-size: 0.65rem;" aria-label="Hapus Filter"></button>
+                </span>
+              </div>
+            @endif
           </div>
         </div>
 

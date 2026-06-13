@@ -5,6 +5,8 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Customer;
+use App\Helpers\BonusCalculator;
+use Livewire\Attributes\Url;
 
 class CustomerList extends Component
 {
@@ -13,6 +15,9 @@ class CustomerList extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $search = '';
+
+    #[Url]
+    public $bonusFilter = ''; // 'eligible' or empty
     
     // Form properties
     public $isEditMode = false;
@@ -119,9 +124,20 @@ class CustomerList extends Component
 
     public function render()
     {
-        $customers = Customer::where('name', 'like', '%' . $this->search . '%')
-            ->orderBy('name', 'asc')
-            ->paginate(10);
+        $query = Customer::where('name', 'like', '%' . $this->search . '%');
+
+        if ($this->bonusFilter === 'eligible') {
+            $eligibleIds = [];
+            foreach (Customer::all() as $c) {
+                $stats = BonusCalculator::getStats($c);
+                if ($stats['bonuses_available'] > 0) {
+                    $eligibleIds[] = $c->id;
+                }
+            }
+            $query->whereIn('id', $eligibleIds);
+        }
+
+        $customers = $query->orderBy('name', 'asc')->paginate(10);
 
         return view('livewire.customer-list', [
             'customers' => $customers
