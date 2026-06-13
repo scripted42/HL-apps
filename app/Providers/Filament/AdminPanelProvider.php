@@ -29,6 +29,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->topNavigation()
+            ->darkMode(false)
+            ->defaultThemeMode(\Filament\Enums\ThemeMode::Light)
             ->login(\App\Filament\Pages\Auth\CustomLogin::class)
             ->colors([
                 'primary' => Color::Indigo,
