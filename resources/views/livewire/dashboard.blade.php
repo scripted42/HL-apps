@@ -351,6 +351,9 @@
         scales: {
           y: {
             beginAtZero: true,
+            afterFit: function(scaleInstance) {
+              scaleInstance.width = 110; // Force y-axis to be exactly 110px wide to prevent any text clipping
+            },
             ticks: {
               callback: function(value) {
                 return 'Rp ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
