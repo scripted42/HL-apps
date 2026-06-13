@@ -2,6 +2,11 @@
 
 Aplikasi internal berbasis web untuk mengelola transaksi penjualan (bon), pemantauan piutang, pelacakan akumulasi bonus pelanggan (*cash basis*), laba bersih, serta rekapitulasi data keuangan. Sistem ini dibangun menggunakan **Laravel 11**, **Laravel Livewire v3**, dan **Tabler.io Bootstrap 5** untuk antarmuka pengguna (UI) yang modern dan responsif.
 
+> [!IMPORTANT]
+> **Kredensial Login Default (Seeded Admin):**
+> * **Email / Username**: `admin@hlfinance.com`
+> * **Password**: `adminfinance`
+
 ---
 
 ## 🛠️ Tech Stack & Dependensi
