@@ -136,7 +136,7 @@
                   </thead>
                   <tbody>
                     @forelse($items as $index => $item)
-                      <tr>
+                      <tr wire:key="item-{{ $item['key'] ?? $index }}">
                         <td>
                           <select wire:model.live="items.{{ $index }}.product_id" class="form-select form-select-sm @error('items.'.$index.'.product_id') is-invalid @enderror">
                             <option value="">-- Pilih Produk --</option>

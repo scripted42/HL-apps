@@ -77,6 +77,7 @@ class TransactionCreator extends Component
             // Load items
             foreach ($transaction->items as $item) {
                 $this->items[] = [
+                    'key' => uniqid(),
                     'id' => $item->id,
                     'product_id' => $item->product_id,
                     'product_name' => $item->product_name,
@@ -179,6 +180,7 @@ class TransactionCreator extends Component
     public function addItem()
     {
         $this->items[] = [
+            'key' => uniqid(),
             'id' => null,
             'product_id' => '',
             'product_name' => '',
@@ -201,44 +203,43 @@ class TransactionCreator extends Component
         $this->recalculateAll();
     }
 
-    public function updatedItems($value, $key)
+    public function updated($name, $value)
     {
-        $parts = explode('.', $key);
-        if (count($parts) < 2) {
-            return;
-        }
+        if (str_starts_with($name, 'items.')) {
+            $parts = explode('.', $name);
+            if (count($parts) >= 3) {
+                $index = (int) $parts[1];
+                $property = $parts[2];
 
-        $index = (int) $parts[0];
-        $property = $parts[1];
-
-        if ($property === 'product_id') {
-            $productId = $this->items[$index]['product_id'];
-            if (!empty($productId)) {
-                $product = Product::find($productId);
-                if ($product) {
-                    $this->items[$index]['product_name'] = $product->name;
-                    $this->items[$index]['product_type'] = $product->type;
-                    $this->items[$index]['harga_modal'] = (float) $product->harga_modal;
-                    $this->items[$index]['harga_base'] = (float) $product->harga_base;
-                    
-                    $discountSteps = ($product->type === 'LM') ? $this->customerDiscountLm : $this->customerDiscountBr;
-                    $this->items[$index]['discount_steps'] = $discountSteps;
-                    $this->items[$index]['discount_steps_input'] = implode(', ', $discountSteps);
+                if ($property === 'product_id') {
+                    $productId = $value;
+                    if (!empty($productId)) {
+                        $product = Product::find($productId);
+                        if ($product) {
+                            $this->items[$index]['product_name'] = $product->name;
+                            $this->items[$index]['product_type'] = $product->type;
+                            $this->items[$index]['harga_modal'] = (float) $product->harga_modal;
+                            $this->items[$index]['harga_base'] = (float) $product->harga_base;
+                            
+                            $discountSteps = ($product->type === 'LM') ? $this->customerDiscountLm : $this->customerDiscountBr;
+                            $this->items[$index]['discount_steps'] = $discountSteps;
+                            $this->items[$index]['discount_steps_input'] = implode(', ', $discountSteps);
+                        }
+                    } else {
+                        $this->items[$index]['product_name'] = '';
+                        $this->items[$index]['product_type'] = '';
+                        $this->items[$index]['harga_modal'] = 0.00;
+                        $this->items[$index]['harga_base'] = 0.00;
+                        $this->items[$index]['discount_steps'] = [];
+                        $this->items[$index]['discount_steps_input'] = '';
+                    }
+                } elseif ($property === 'discount_steps_input') {
+                    $this->items[$index]['discount_steps'] = $this->parseDiscounts($value);
                 }
-            } else {
-                $this->items[$index]['product_name'] = '';
-                $this->items[$index]['product_type'] = '';
-                $this->items[$index]['harga_modal'] = 0.00;
-                $this->items[$index]['harga_base'] = 0.00;
-                $this->items[$index]['discount_steps'] = [];
-                $this->items[$index]['discount_steps_input'] = '';
-            }
-        } elseif ($property === 'discount_steps_input') {
-            $input = $this->items[$index]['discount_steps_input'];
-            $this->items[$index]['discount_steps'] = $this->parseDiscounts($input);
-        }
 
-        $this->recalculateAll();
+                $this->recalculateAll();
+            }
+        }
     }
 
     private function parseDiscounts($input): array
