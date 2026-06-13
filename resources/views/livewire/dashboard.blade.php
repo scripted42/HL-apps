@@ -334,7 +334,7 @@
         maintainAspectRatio: false,
         layout: {
           padding: {
-            left: 15
+            left: 40
           }
         },
         plugins: {
